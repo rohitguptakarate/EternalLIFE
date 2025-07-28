@@ -43,6 +43,47 @@
                       ];
                   @endphp
 
+                  @php
+                      $contactsRoutes = ['show.contact', 'contact.data'];
+                  @endphp
+
+
+
+
+
+                  {{-- sidebar -contact  --}}
+                  <li
+                      class="nav-item has-treeview {{ in_array(Route::currentRouteName(), $contactsRoutes) ? 'menu-open' : '' }}">
+                      <a href="#"
+                          class="nav-link {{ in_array(Route::currentRouteName(), $contactsRoutes) ? 'active' : '' }}">
+                          <i class="nav-icon fas fa-address-book"></i>
+                          <p>
+                              Contact
+                              <i class="right fas fa-angle-left"></i>
+                          </p>
+                      </a>
+                      <ul class="nav nav-treeview">
+                          <li class="nav-item">
+                              <a href="{{ route('show.contact') }}"
+                                  class="nav-link {{ Route::currentRouteName() == 'show.contact' ? 'active' : '' }}">
+                                  <i class="far fa-circle nav-icon"></i>
+                                  <p>Add New Contact</p>
+                              </a>
+                          </li>
+                          <li class="nav-item">
+                              <a href="{{ route('contact.data') }}"
+                                  class="nav-link {{ Route::currentRouteName() == 'contact.data' ? 'active' : '' }}">
+                                  <i class="far fa-circle nav-icon"></i>
+                                  <p>Manage Contact</p>
+                              </a>
+                          </li>
+                      </ul>
+                  </li>
+                  {{-- /sidebar -contact  --}}
+
+
+
+                  {{-- setting  --}}
                   <li
                       class="nav-item has-treeview {{ in_array(Route::currentRouteName(), $settingsRoutes) ? 'menu-open' : '' }}">
                       <a href="#"
@@ -92,9 +133,13 @@
                           </li>
                       </ul>
                   </li>
+
               </ul>
           </nav>
           <!-- /.sidebar-menu -->
+
+
+
 
           {{-- this is previous code  --}}
           <!-- Sidebar Menu -->

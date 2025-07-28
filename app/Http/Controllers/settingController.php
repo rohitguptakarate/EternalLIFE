@@ -308,14 +308,12 @@ class settingController extends Controller
 
 
 
-
-
     // Company 
     public function showCompany()
     {
         $GetAllData = Company::first();
-        $states =State::all();
-        return  view('settingpages/companyInformation', ['company' => $GetAllData], ['states' =>$states]);
+        $states = State::all();
+        return  view('settingpages/companyInformation', ['company' => $GetAllData], ['states' => $states]);
     }
 
     // Company update 

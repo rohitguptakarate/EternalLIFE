@@ -40,15 +40,3 @@ return new class extends Migration
         Schema::dropIfExists('company');
     }
 };  
-
-            // $table->id();
-            // $table->timestamps();
-            // $table->string('first_name');
-            // $table->string('middle_name')->nullable();
-            // $table->string('last_name');
-            // $table->date('dob');
-            // $table->string('gender');
-            // $table->string('mobile_no');
-            // $table->string('alternate_mobile_no');
-            // $table->string('email_address');
-            // $table->string('subject_name');

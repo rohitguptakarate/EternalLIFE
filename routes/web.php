@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\changePasswordController;
+use App\Http\Controllers\contactController;
 use App\Http\Controllers\loginController;
 use App\Http\Controllers\settingController;
 use Illuminate\Support\Facades\Route;
@@ -58,8 +59,24 @@ Route::middleware(['checkAdmin'])->group(
         Route::get('/change-password', [changePasswordController::class, 'showPassword'])->name('show.Password');
         // update Password 
         Route::post('/update-password', [changePasswordController::class, 'updatePassword'])->name('update.password');
+
+
+
+
+        //--------------------------------- contact form --------------------------------------------------->
+        Route::get('/add-contact', [contactController::class, 'showContact'])->name('show.contact');
+        // add contact form 
+        Route::post('/add-contact', [contactController::class, 'addContact'])->name('add.contact');
+        // show table form 
+        Route::get('/manage-contact', [contactController::class, 'contactData'])->name('contact.data');
+        // show update form 
+        Route::get('/update-contact/{id}', [contactController::class, 'showUpdateContact'])->name('show.update.contact');
+        // update contact
+        Route::put('/update-contact/{id}', [contactController::class, 'update'])->name('update.contact');
     }
 );
+
+
 
 
 
