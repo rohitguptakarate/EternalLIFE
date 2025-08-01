@@ -47,6 +47,44 @@
                       $contactsRoutes = ['show.contact', 'contact.data'];
                   @endphp
 
+                  @php
+                      $itemsRoutes = ['show.Items', 'add.Items'];
+                  @endphp
+
+
+                  {{-- sidebar -Items  --}}
+                  <li
+                      class="nav-item has-treeview  {{ in_array(Route::currentRouteName(), $itemsRoutes) ? 'menu-open' : '' }}">
+                      <a href="#"
+                          class="nav-link {{ in_array(Route::currentRouteName(), $itemsRoutes) ? 'active' : '' }} ">
+                          <i class="nav-icon fas fa-address-book"></i>
+                          <p>
+                              Item
+                              <i class="right fas fa-angle-left"></i>
+                          </p>
+                      </a>
+                      <ul class="nav nav-treeview">
+                          <li class="nav-item">
+                              <a href="{{ route('show.Items') }}"
+                                  class="nav-link {{ Route::currentRouteName() == 'show.Items' ? 'active' : '' }} ">
+                                  <i class="far fa-circle nav-icon"></i>
+                                  <p>Manage Items</p>
+                              </a>
+                          </li>
+                          <li class="nav-item">
+                              <a href="{{ route('add.Items') }}"
+                                  class="nav-link {{ Route::currentRouteName() == 'add.Items' ? 'active' : '' }}  ">
+                                  <i class="far fa-circle nav-icon"></i>
+                                  <p>Add Items</p>
+                              </a>
+                          </li>
+                      </ul>
+                  </li>
+                  {{-- /sidebar -Items  --}}
+
+
+
+
 
 
 

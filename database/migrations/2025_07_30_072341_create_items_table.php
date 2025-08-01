@@ -1,0 +1,44 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    /**
+     * Run the migrations.
+     */
+    public function up(): void
+    {
+        Schema::create('items', function (Blueprint $table) {
+            $table->id();
+            $table->string('name');
+            $table->decimal('price', 10, 2);
+            $table->text('description')->nullable();
+
+            // Foreign Keys
+            $table->unsignedBigInteger('category_id');
+            $table->unsignedBigInteger('subcategory_id')->nullable();
+
+            // New tax ID relations
+            $table->unsignedBigInteger('interstate_tax_id')->nullable();
+            $table->unsignedBigInteger('intrastate_tax_id')->nullable();
+            
+            // set up foringn key 
+            $table->foreign('category_id')->references('id')->on('category')->onDelete('cascade');
+            $table->foreign('subcategory_id')->references('id')->on('subcategory')->onDelete('set null');
+            
+           
+            $table->timestamps();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     */
+    public function down(): void
+    {
+        Schema::dropIfExists('items');
+    }
+};

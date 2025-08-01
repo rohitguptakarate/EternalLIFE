@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Items;
 use App\Models\User;
 use Illuminate\Container\Attributes\DB;
 use Illuminate\Http\Request;
@@ -70,6 +71,32 @@ class changePasswordController extends Controller
 
     //     return "User created using Eloquent!";
     // }
+
+
+
+    // public function storeSampleItems()
+    // {    
+    //     // Step 1: Create a new item
+    //     Items::create(  
+    //     [
+    //         'name' => 'Cheese Burst',
+    //         'price' => 350.00,
+    //         'description' => 'Cheesy layered pizza with extra toppings',
+    //         'category_id' => 1,
+    //         'subcategory_id' => 2,
+           
+    //         'interstate' => 6.00,
+    //         'intrastate' => 5.00,
+    //         'created_at' => now(),
+    //         'updated_at' => now(),
+    //     ]);
+    //     return "Store data of items";
+
+    // }
+
+
+
+
 
 
     // $request ->    {

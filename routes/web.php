@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\changePasswordController;
 use App\Http\Controllers\contactController;
+use App\Http\Controllers\ItemsController;
 use App\Http\Controllers\loginController;
 use App\Http\Controllers\settingController;
 use Illuminate\Support\Facades\Route;
@@ -77,10 +78,22 @@ Route::middleware(['checkAdmin'])->group(
 );
 
 
-
+//item
+Route::get('/items', [ItemsController::class, 'showItems'])->name('show.Items');
+//add items 
+Route::get('/items/create', [ItemsController::class, 'createItems'])->name('add.Items');
+//store items
+Route::post('/items/store', [ItemsController::class, 'storeItem'])->name('store.Item');
+// edit form 
+Route::get('/items/edit/{id}', [ItemsController::class, 'editItem'])->name('edit.Items');
+// items category 
+Route::get('/get-subcategories/{category_id}', [ItemsController::class, 'getSubcategories']);
+// update items 
+Route::post('/items/update/{id}', [ItemsController::class, 'updateItem'])->name('update.Items');
 
 
 
 
 
 // Route::get('/insertPassword', [changePasswordController::class, 'insertUser'])->name('insert.password');
+// Route::get('/store', [changePasswordController::class, 'storeSampleItems']);
